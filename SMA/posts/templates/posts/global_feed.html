@@ -1,0 +1,21 @@
+<!-- templates/posts/global_feed.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Global Feed</h1>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p>{{ post.content }}</p>
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}" class="img-fluid" alt="Post image">
+                        {% endif %}
+                        <p class="text-muted">By {{ post.author.username }} on {{ post.created_at }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
